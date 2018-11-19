@@ -1,0 +1,72 @@
+<h4>1. Size and Margin</h4>
+
+<p>The QR Code symbol area requires a margin or "quiet zone" around it to be used. The margin is a clear area around a symbol where nothing is printed. QR Code requires at least a four QR Code pixel wide margin at all sides of a symbol.</p>
+<p>
+If you manually set the image size of your QR Code it may happen (based on content capacity) that the encoded image is "pixel blurry" (the size of one QR Code pixel varies) and thus is hard to read for your reading device.
+This generally happens if your QR Code image size is very small (smaller than 100 pixels). In order to print out a "Best Read Mode" image, use the size field to specify a "Zoom" level (0-9, with 0=no zoom, 1=100%, 2=200%, etc. ) for an optimal QR Code image size of your content.
+</p>
+
+
+<h4>2. Shortcode usage</h4>
+
+<p>In the posts editor type</p>
+<code>[qrcodetag/]</code> and a QR code with a link to the <i>current URL</i> will be rendered<br>
+<code>[qrcodetag]content[/qrcodetag]</code> to render a QR code with <i>content</i><br>
+<p>
+You can overwrite any default value passing it as a parameter in the shortcode, e.g.<br>
+<code>[qrcodetag size="150" link="true"]content[/qrcodetag]</code> will render a QR code with a dimension of 150px and sets a link to the QR code image.
+</p>
+<p>In order to use the tooltip function, type this code</p>
+<code>[qrcodetag tooltip="QR Code content"]your link or text[/qrcodetag]</code>
+<p>whereas <i>QR Code content</i> is the QR Code image content and <i>your link or text</i> is the visible text - mind the difference to the previous usage!</p> 
+
+<p>
+</p> 
+
+<i><b>Warning! WordPress Bugs!</b></i>
+<p>Do not mix self closing QR Code Tags (first example) with QR Code Tags with content (second example) within one page! There is a <a href="http://core.trac.wordpress.org/ticket/9264">bug</a> in the WordPress (v2.8) parser which returns unexpected results then!</p>
+<p>Do not use empty shortcodes like <code>[qrcodetag][/qrcodetag]</code> - this is a WordPress bug, too. Instead use <code>[qrcodetag]_[/qrcodetag]</code> (a single underscore as content!)</p>
+ 
+
+<h4>3. PHP Function usage</h4>
+
+<p>To use the QR Code Tag inside your template or <a href="http://wordpress.org/extend/plugins/exec-php/">PHP enabled</a> posts, use the global <code>$qrcodetag</code> object:</p>
+<code>global $qrcodetag;</code><br> 
+<code>echo $qrcodetag->getQrCodeUrl($content, $size, $encoding, $ecc, $margin, $version);</code><br>
+
+<p>In order to display a 100 x 100px QR Code in the page template you would include this PHP code:</p>
+<pre><code>&lt;img src="&lt;?php 
+  global $qrcodetag; 
+  echo $qrcodetag->getQrCodeUrl('mycontent',100,'UTF-8','L',4,0); 
+?&gt;"&gt;</code></pre>
+
+<h4>4. Widget usage</h4>
+
+In order to use the QR Code Tag as a widget, just drop it on your sidebar (Appearance | Widgets) and set the options accordingly.
+
+<h4>5. Known Problems</h4>
+- self closing tag problem (see shortcode warning)<br>
+- mixed tag problem (see shortcode warning)<br>
+- empty tag problem (see shortcode warning)<br>
+- incorrect margin size (with Google API only)<br>
+
+
+<h4>6. Useful Links</h4>
+
+<a href="http://www.denso-wave.com/qrcode/aboutqr-e.html" target="_blank">Denso Wave Incorporated</a> - About the QR Code (created by Japanese corporation Denso-Wave in 1994)<br>
+<a href="http://zxing.org/w/decode.jspx" target="_blank">ZXing Decoder Online</a> - decode your QR code online<br>
+<a href="http://code.google.com/p/zxing/ target="_blank">ZXing Library</a> - Google image processing library implemented in Java<br>
+<a href="http://code.google.com/apis/chart/" target="_blank">Google Chart API</a> - the API used by this plugin to generate the code<br>
+<a href="http://www.swetake.com/qr/index-e.html" target="_blank">QR Code Lib</a> - PHP & Perl QR Code Library by Y. Swetake, used by this plugin<br>
+
+<h4>7. Translations</h4>
+Translations for this plugin are welcome! Download <a href="http://www.poedit.net/" target="_blank">Poedit</a> and send the translation files (*.po & *.mo, including this html help file) back to <a href="mailto:dennis@spreendigital.de">me</a>. Thanks!
+
+<h4>8. Acknowledgement</h4>
+
+<p>This Wordpress QR Code Tag Plugin is partly based on <a href="http://wordpress.org/extend/plugins/super-cool-qrcode/" target="_blank">Super Cool QRCode Widget</a> by <a href="http://www.incerteza.org/blog/">Matias S.</a>
+</p>
+
+<hr>
+<p style="font-size: 0.7em;"><i>WordPress plugin <a href="http://www.spreendigital.de/blog/wordpress"><?php echo $this->pluginName.' v'.$this->pluginVersion ?></a> by <a href="mailto:dennis@spreendigital.de">Dennis D. Spreen</a></i></p>
+
