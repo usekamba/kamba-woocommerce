@@ -50,7 +50,7 @@ Class WP_Gateway_Kamba extends WC_Payment_Gateway
         $order_item = $order->get_items();
 
         foreach ($order_item as $product) {
-            $product_list .= $product['name']." - quantidade(". $product["qty"]."),\n";
+            $product_list .= $product["qty"]." x " .$product['name']."\n";
         }        
 		try {
 			$request = new KambaCheckout($this->merchant_id, $this->api_key, $this->testmode);
