@@ -36,11 +36,14 @@ Crie uma conta Comerciante connosco entrando em contato com nossa equipe de supo
 > **Nota:** Para usar o plugin Kamba Woocommerce certifica que as dependências acima já foram instaladas
 1. Envie a pasta ```kamba-woocommerce-plugin``` para ```/wp-content/plugins/``` no seu server.
 2. Activa o plugin através do menu ```plugins``` em seu site wordpress.
-3. Envie o ficheiro ```theme/kamba-checkout-qr.php``` para a pasta themes/seu-tema/templates/ que contém o tema actual do seu site wordpress.
+3. Envie o ficheiro ```theme/kamba-checkout-qr.php``` para a pasta themes/seu-tema/templates/ que contém o tema actual do seu site wordpress. Está página irá apresentar o checkout Kamba para que seus usuários possam escanear usando a carteira Kamba disponível na play store e app store. 
+
+NOTA: A localização da pasta ```templates``` muda consoante o seu tema, terá que certifica que é a pasta correcta antes de copiar o ficheiro.
+
 
 
 ## Histórico de versões
 0.0.1: Initial version - 30/08/2018
-
+0.0.2: Altered payment link implementation to dynamic links instead of deep links - 11/12/2018
 
 © 2018 Soluções de Pagamento. Todos os direitos reservados. USEKAMBA, LDA. - Rua Avenida Manuel Vandunem, Ingombotas - Luanda - Angola
