@@ -41,6 +41,6 @@ Crie uma conta Comerciante connosco entrando em contato com nossa equipe de supo
 
 ## Histórico de versões
 0.0.1: Initial version - 30/08/2018
-
+0.0.2: Altered payment link implementation to dynamic links instead of deep links - 30/08/2018
 
 © 2018 Soluções de Pagamento. Todos os direitos reservados. USEKAMBA, LDA. - Rua Avenida Manuel Vandunem, Ingombotas - Luanda - Angola
