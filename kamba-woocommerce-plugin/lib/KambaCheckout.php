@@ -63,7 +63,7 @@ Class KambaCheckout {
 		$total_amount = $resp['total_amount'];
 		$timestamp = strtotime($resp['expires_at']);
 		$expiration_date = date('d/m/Y H:i:s', $timestamp);
-		$checkout_mobile_link = "https://usekamba.page.link/?link=https://www.usekamba.com/&apn=com.usekamba.kamba.kamba&ibi=com.usekamba.kamba&mID=".$resp['id']."&chID=".$resp['id'];
+		$checkout_mobile_link = "https://comerciante.usekamba.com/pay?chID=".$resp['id'];
 		if ($this->test_mode) {
 		    $checkout_url = "https://sandbox.usekamba.com/v1/pay?mID=".$resp['merchant']['id']."&chID=".$resp['id'];
 		} else {
