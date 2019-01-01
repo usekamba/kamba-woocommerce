@@ -4,6 +4,8 @@
  * Restful Kamba Checkout API client
  * 
  */
+date_default_timezone_set("Africa/Luanda");
+
 if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
@@ -37,10 +39,15 @@ Class KambaCheckout {
 		else
 			$this->api_endpoint  = "https://api.usekamba.com/v1/checkouts";
 	}
+
+	public function generateHMAC($data) {
+		return "POST,application/json,".md5($data).",/v1/checkouts,".gmstrftime ("%A, %d %b %Y %T %Z", time ());
+	}
 	
 	public function createCheckout($data)
 	{
 		$curl = curl_init();
+		$hmac_signature = generateHMAC($data);
 		curl_setopt_array($curl, array(
 			CURLOPT_URL => $this->api_endpoint ,
 			CURLOPT_RETURNTRANSFER => true,
@@ -51,6 +58,7 @@ Class KambaCheckout {
 			CURLOPT_POSTFIELDS => $data,
 			CURLOPT_HTTPHEADER => array(
 				"authorization: Token $this->api_key",
+				"signature: $hmac_signature",
 				"content-type: application/json"
 				)
 		));
