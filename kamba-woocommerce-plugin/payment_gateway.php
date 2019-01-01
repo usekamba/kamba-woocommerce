@@ -69,7 +69,7 @@ Class WP_Gateway_Kamba extends WC_Payment_Gateway
 				WC()->session->set( 'payment_request_id',  $response->id);	
 				return array(
                     'result'    => 'success', 
-                    'redirect'  => site_url() ."/kamba-checkout/"
+                    'redirect'  => site_url()."/kamba-checkout/"
 				);
 			}
 		} catch (CurlException $e) {

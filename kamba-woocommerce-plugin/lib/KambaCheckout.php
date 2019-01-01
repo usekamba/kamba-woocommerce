@@ -41,7 +41,7 @@ Class KambaCheckout {
 	}
 
 	public function generateHMAC($data) {
-		return "POST,application/json,".md5($data).",/v1/checkouts,".gmstrftime ("%A, %d %b %Y %T %Z", time ());
+		return "POST,application/json,".md5($data).",/v1/checkouts,".gmstrftime ("%A, %d %b %Y %T %Z", time());
 	}
 	
 	public function createCheckout($data)
