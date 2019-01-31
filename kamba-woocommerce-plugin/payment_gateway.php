@@ -25,8 +25,8 @@ Class WP_Gateway_Kamba extends WC_Payment_Gateway
 		$this->init_form_fields();
 		$this->init_settings();
 		$this->title            = $this->get_option( 'title' );
-		$this->description      = "Ao escolher Kamba Checkout como forma de pagamento, voc锚 finalizar谩 o seu pagamento com 
-		a sua Carteira Kamba instalada em seu telem贸vel para escanear o c贸digo qr e autorizar o pagamento.";
+		$this->description      = "Ao escolher Kamba Checkout como forma de pagamento, você finalizará o seu pagamento com 
+		a sua Carteira Kamba instalada em seu telemóvel para escanear o código qr e autorizar o pagamento.";
 		$this->testmode         = 'yes' === $this->get_option( 'testmode', 'no' );
 		$this->merchant_id      = $this->get_option( 'client_id' );
 		$this->secret_key		= $this->get_option( 'secret_key' );
