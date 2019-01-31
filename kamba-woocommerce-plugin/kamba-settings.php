@@ -23,7 +23,9 @@ return array(
 				'type'        => 'text',
 				'desc_tip'    => true,
 				'description' => __( 'Descrição que o usuário vê durante o checkout.', 'woocommerce' ),
-				'default'     => __( 'Pagar com Kamba Checkout', 'kamba' )
+				'default'     => __( 'Ao escolher Kamba Checkout como forma de pagamento, você finalizará
+				 o seu pagamento com a sua Carteira Kamba instalada em seu telemóvel para escanear o código
+				  qr e autorizar o pagamento.', 'kamba' )
 			),
 			'api_details' => array(
 				'title'       => __( 'Chaves de API', 'kamba' ),
@@ -41,6 +43,11 @@ return array(
 				'type' => 'text',
 				'description' => __( 'A sua chave de API está disponível na sua conta comerciante, no menu Integrações', 'woocommerce' ),
 				'desc_tip'      => true,
+			),'secret_key' => array(
+				'title' => __( 'Chave Secreta*', 'woocommerce' ),
+				'type' => 'text',
+				'description' => __( 'A sua chave secreta está disponível na sua conta comerciante, no menu Integrações', 'woocommerce' ),
+				'desc_tip'      => true,
 			),
 			'testmode' => array(
 				'title'       => __( 'Modo Sandbox', 'kamba' ),
@@ -48,11 +55,5 @@ return array(
 				'label'       => __( 'Habilitar modo Sandbox', 'kamba' ),
 				'default'     => 'no',
 				'description' => sprintf( __( 'Para habilitar o modo Sandbox crie uma conta Comerciante de testes em  %s', 'woocommerce' ), 'https://comerciante.usekamba.com/' ),
-			),
-			'checkout_url' => array(
-				'title' => __( 'URL do checkout*', 'woocommerce' ),
-				'type' => 'text',
-				'description' => __('Url que irá apresentar o código qr do checkout', 'woocommerce' ),
-				'desc_tip'      => '',
-			),		
+			)	
 		);
