@@ -6,7 +6,7 @@ if (!defined( 'ABSPATH' )) {
 
 function phpAlert($msg) 
 {
-    //echo '<script type="text/javascript">alert("' . $msg . '")</script>';
+    // echo '<script type="text/javascript">alert("' . $msg . '")</script>';
 }
 
 Class WP_Gateway_Kamba extends WC_Payment_Gateway 
@@ -18,15 +18,15 @@ Class WP_Gateway_Kamba extends WC_Payment_Gateway
 	public function __construct()
 	{
 		$this->id                   = "kamba-woocommerce";
-		$this->icon                 = "https://raw.githubusercontent.com/usekamba/kamba-checkout-universal-design/master/assets/img/kamba-badge.png";
+		$this->icon                 = "https://raw.githubusercontent.com/usekamba/kamba-checkout-universal-design/master/assets/img/kamba-badge-3.png";
 		$this->has_fields           = false;
 		$this->method_title         = "Kamba Checkout";
 		$this->method_description   = "Recargas de saldo e pagamentos na Internet com dinheiro";
 		$this->init_form_fields();
 		$this->init_settings();
 		$this->title            = $this->get_option( 'title' );
-		$this->description      = "Ao escolher Kamba Checkout como forma de pagamento, você finalizará o seu pagamento com 
-		a sua Carteira Kamba instalada em seu telemóvel para escanear o código qr e autorizar o pagamento.";
+		$this->description      = "Ao escolher Kamba Checkout como forma de pagamento, voc锚 finalizar谩 o seu pagamento com 
+		a sua Carteira Kamba instalada em seu telem贸vel para escanear o c贸digo qr e autorizar o pagamento.";
 		$this->testmode         = 'yes' === $this->get_option( 'testmode', 'no' );
 		$this->merchant_id      = $this->get_option( 'client_id' );
 		$this->secret_key		= $this->get_option( 'secret_key' );
@@ -41,13 +41,21 @@ Class WP_Gateway_Kamba extends WC_Payment_Gateway
 	public function process_payment($orderId)
 	{
 		include_once "lib/KambaCheckout.php";
-		
 		$order = new WC_Order( $orderId );
 		$product_list = "";
         $order_item = $order->get_items();
 
         foreach ($order_item as $product) {
-            $product_list .= $product["qty"]." x " .$product['name'];
+            if ($order_item > 1) {
+                if ($order_item == $order_item) {
+                    $product_list .= $product["qty"]." x " .$product['name'].". ";
+                } else {
+                    $product_list .= $product["qty"]." x " .$product['name'].", ";
+                }
+                    
+            } else {
+                $product_list .= $product["qty"]." x " .$product['name']. " ";
+            }
         }        
 		try {
 			$request = new KambaCheckout($this->merchant_id, $this->secret_key, $this->testmode);
@@ -103,9 +111,7 @@ Class WP_Gateway_Kamba extends WC_Payment_Gateway
 
 	public static function log( $message, $level = 'info' ) {
         if ( self::$log_enabled ) {
-            if ( empty( self::$log ) ) {
-                self::$log = wc_get_logger();
-            }
+            if ( empty( self::$log ) ) {self::$log = wc_get_logger(); }
             self::$log->log( $level, $message, array( 'source' => 'Kamba Checkout' ) );
         }
     }

@@ -21,15 +21,15 @@ Com uma única **integração multicanal**, seus clientes poderão realizar paga
 ### QR Code Tag - Responsável por gerar o código QR que será escaneado pelo seu cliente.
 #### Como instalar  
 
-1. Envie o ficheiro ```qr-code-tag``` por meio de FTP para a pasta ```/wp-content/plugins/``` no seu server ou 
-faça upload do plugin através do menu plugins. 
+1. Envie a pasta ```qr-code-tag``` por meio de FTP para a pasta ```/wp-content/plugins/``` no seu server ou 
+faça upload do plugin ```qr-code-tag.zip``` através do menu plugins. 
 2. Activa o plugin através do menu ```plugins``` em seu site wordpress.
 
 ### Theme Customisations
 #### Como instalar  
 
-1. Envie o ficheiro ```theme-customisations.zip``` por meio de FTP para a pasta ```/wp-content/plugins/``` no seu server ou 
-faça upload do plugin através do menu plugins. 
+1. Envie a pasta ```theme-customisations``` por meio de FTP para a pasta ```/wp-content/plugins/``` no seu server ou 
+faça upload do plugin ```theme-customisations.zip``` através do menu plugins. 
 2. Activa o plugin através do menu ```plugins``` em seu site wordpress.
 
 ## Instalação do plugin Kamba Woocommerce
