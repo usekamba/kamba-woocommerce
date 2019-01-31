@@ -32,8 +32,8 @@ li {
 }
 
 .checkout-card {
-    min-width: 380px;
-    max-width: 460px;
+    min-width: 320px;
+    max-width: 500px;
     min-height: 552px;
     background: #FFFFFF;
     border: 1px solid #FFFFFF;
@@ -175,7 +175,7 @@ hr {
 }
 
 .button.large {
-    font-size: 1.25rem;
+    font-size: 1.0rem;
 }
 
 .btnOpenWidgetKamba {
@@ -195,7 +195,7 @@ hr {
     border-radius: 0;
     -webkit-transition: background-color 0.25s ease-out, color 0.25s ease-out;
     transition: background-color 0.25s ease-out, color 0.25s ease-out;
-    font-size: 0.9rem;
+    font-size: 0.8rem;
     line-height: 1;
     text-align: center;
     cursor: pointer;
@@ -247,6 +247,20 @@ button {
     .card-toolbar > ul > li {
         margin-right: 16%;
     }
+    
+    * {
+        font-size: 0.8rem;
+    }
+    
+    .img-pay-logo {
+        width: 32px;
+        height: 18px;
+    }
+    
+    .checkout-card {
+        max-width: 100% !important;
+        max-height: 100% !important;
+    }
 }
 
 </style>
@@ -262,7 +276,10 @@ function formatKwanzas($money)
     return "Kz ".number_format(sprintf('%0.2f', preg_replace("/[^0-9.]/", "", $money)), 2);
 }
   ?>
-
+  <head>
+       <meta name="viewport" content="width=device-width, initial-scale=1">
+  </head>
+<body>  
 <div class='center checkout-card'>
             <div class='div card-toolbar'>
                 <ul class='card-container'>
@@ -312,4 +329,5 @@ function formatKwanzas($money)
                 </div>
             </div>
     </div>
+</body>
 <?php
