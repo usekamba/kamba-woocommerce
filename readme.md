@@ -18,18 +18,21 @@ Com uma única **integração multicanal**, seus clientes poderão realizar paga
 
 ## Dependências
 
+## Plugin Woocommerce
+Faça a instalação e configuração do plugin Woocommerce através da secção plugins em seu site wordpress.
+
 ### QR Code Tag - Responsável por gerar o código QR que será escaneado pelo seu cliente.
 #### Como instalar  
 
-1. Envie o ficheiro ```qr-code-tag``` por meio de FTP para a pasta ```/wp-content/plugins/``` no seu server ou 
-faça upload do plugin através do menu plugins. 
+1. Envie a pasta ```qr-code-tag``` por meio de FTP para a pasta ```/wp-content/plugins/``` no seu server ou 
+faça upload do plugin ```qr-code-tag.zip``` através do menu plugins. 
 2. Activa o plugin através do menu ```plugins``` em seu site wordpress.
 
 ### Theme Customisations
 #### Como instalar  
 
-1. Envie o ficheiro ```theme-customisations.zip``` por meio de FTP para a pasta ```/wp-content/plugins/``` no seu server ou 
-faça upload do plugin através do menu plugins. 
+1. Envie a pasta ```theme-customisations``` por meio de FTP para a pasta ```/wp-content/plugins/``` no seu server ou 
+faça upload do plugin ```theme-customisations.zip``` através do menu plugins. 
 2. Activa o plugin através do menu ```plugins``` em seu site wordpress.
 
 ## Instalação do plugin Kamba Woocommerce
@@ -41,12 +44,13 @@ faça upload do plugin através do menu plugins.
     > 2) Chave da API
     > 3) Chave secreta da API
 5. Salva as configurações 
-6. Envie o ficheiro ```theme/kamba-checkout-qr.php``` para a pasta themes/seu-tema/templates/ que contém o tema actual do seu site wordpress. Esta página irá apresentar o checkout Kamba para que seus usuários possam visualizar o checkout e escanear o código QR usando a carteira Kamba disponível na play store e app store. 
-7. Crie uma pagina nova com o seguinte título ```kamba-checkout-qr```. Certifica que essa página usa o seguinte permalink: http://seu-site.com/kamba-checkout/ 
-e na secção Atributos da página define o Kamba Checkout QR como template para esta página. 
+6. Envie o ficheiro ```theme/kamba-checkout-qr.php``` para a pasta ```/wp-content/themes/seu-tema/templates/``` que contém o tema actual do seu site wordpress. Esta página irá apresentar o checkout Kamba para que seus usuários possam visualizar o checkout e escanear o código QR usando a carteira Kamba disponível na play store e app store. 
+7. Crie uma pagina nova com o seguinte título ```kamba-checkout-qr```. Certifica que essa página usa o seguinte permalink: http://seu-site.com/kamba-checkout/ e na secção Atributos da página define o ```Kamba Checkout QR ``` como template para esta página. 
 
 NOTA: A localização da pasta ```templates``` muda consoante o seu tema, terá que certifica que é a pasta correcta antes de copiar o ficheiro ```theme/kamba-checkout-qr.php```.
 
+Crie um produto e certifica-se que o fluxo de pagamentos esteja funcional.
+Não hesite em entrar em contacto com a equipe do suporte caso haja alguns problemas na instalação: suporte@usekamba.com
 
 ## Histórico de versões
 ``` 0.0.1: Versão Inicial - 30/08/2018 ``` <br/>
