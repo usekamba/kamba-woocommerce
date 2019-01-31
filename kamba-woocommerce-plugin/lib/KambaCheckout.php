@@ -5,8 +5,6 @@
  * 
  */
 
-error_reporting(E_ALL ^ E_NOTICE);
-
 date_default_timezone_set("Africa/Luanda");
 
 if ( ! defined( 'ABSPATH' ) ) {
@@ -99,9 +97,9 @@ Class KambaCheckout {
 		$expiration_date = date('d/m/Y H:i:s', $timestamp);
 		$checkout_mobile_link = "https://comerciante.usekamba.com/pay?chID=".$resp['id'];
 		if ($this->test_mode) {
-		    $checkout_url = "https://sandbox.usekamba.com/v1/pay?mID=".$resp['merchant']['id']."&chID=".$resp['id'];
+		    $checkout_url = "https://comerciante.usekamba.com/pay?chID=".$resp['id'];
 		} else {
-		    $checkout_url = "https://api.usekamba.com/v1/pay?mID=".$resp['merchant']['id']."&chID=".$resp['id'];
+		    $checkout_url = "https://comerciante.usekamba.com/pay?chID=".$resp['id'];
 		}
 		$this->write_log($checkout_url);
 		configCheckout($checkout_url, $checkout_mobile_link, $business_name, $total_amount, $expiration_date, $notes);
@@ -109,7 +107,7 @@ Class KambaCheckout {
 		curl_close($curl);
 
 		if ($err) {
-		echo "cURL Error #:" . $err;
+		echo "cURL Error#:" . $err;
 		} else {
 			phpAlert("No error");
 		}
