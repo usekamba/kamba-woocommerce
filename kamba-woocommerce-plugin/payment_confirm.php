@@ -34,7 +34,6 @@ try{
 	$testmode       = 'yes' === $kambaCheckout->get_option('testmode', 'no');
 	$merchant_id    = $kambaCheckout->get_option('client_id');
 	$api_key        = $kambaCheckout->get_option('client_secret');
-	logd("Client ID: $merchant_id | Client Secret: $api_key  | Testmode: $testmode ");
 	
 	$api        =   new KambaCheckout($merchant_id, $api_key, $testmode);
     $response   =   $api->getCheckoutById($payment_request_id);

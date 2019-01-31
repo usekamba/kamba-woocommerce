@@ -1,0 +1,43 @@
+/**
+ * Add any custom CSS here.
+ *
+ * This file will be loaded after all other theme stylesheets.
+ */
+ 
+ .btn-pay {
+    width: 100% !important;
+    border-radius: 0.3rem !important;
+    margin: 0.5rem 0 !important;
+    padding: 0.5rem !important;
+    color: #000000 !important;
+    font-weight: bolder !important;
+    background-image: -webkit-gradient(linear, left top, right top, from(#00ff5f), to(#00FFB3)) !important;
+    background-image: -webkit-linear-gradient(left, #00ff5f, #00FFB3) !important;
+    background-image: linear-gradient(to right, #00ff5f, #00FFB3) !important;
+    background-image: -webkit-linear-gradient(to right, #00ff5f, #00FFB3) !important;
+    background-image: linear-gradient(to right, #00ff5f, #00FFB3) !important;
+}
+
+button, .button {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    border-radius: 0;
+    border-style: solid;
+    border-width: 0;
+    cursor: pointer;
+    font-family: "Helvetica Neue", Helvetica, Roboto, Arial, sans-serif;
+    font-weight: normal;
+    line-height: normal;
+    margin: 0 0 1.25rem;
+    position: relative;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    padding: 1rem 2rem 1.0625rem 2rem;
+    font-size: 1rem;
+    background-color: #008CBA;
+    border-color: #007095;
+    color: #FFFFFF;
+    -webkit-transition: background-color 300ms ease-out;
+    transition: background-color 300ms ease-out;
+}

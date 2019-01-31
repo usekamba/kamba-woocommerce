@@ -28,9 +28,20 @@ function bbloomer_redirectcustom( $order_id ){
 	}
 }
 
+
+if ( ! function_exists('write_log')) {
+	function write_log ( $log )  {
+	   if ( is_array( $log ) || is_object( $log ) ) {
+		  error_log( print_r( $log, true ) );
+	   } else {
+		  error_log( $log );
+	   }
+	}
+ }
+
 // This code should not be deleted or altered
-add_action('init', 'setCheckout');
-function setCheckout($checkout_data, $checkout_mobile, $business_name, $total_amount, $expiration_date, $notes) {
+//add_action('init', 'configCheckout');
+function configCheckout($checkout_data, $checkout_mobile, $business_name, $total_amount, $expiration_date, $notes) {
 	setcookie("checkout", $checkout_data, time() + 3600, "/");
 	setcookie("mobile_checkout", $checkout_mobile, time() + 3600, "/");
 	setcookie("business_name", $business_name, time() + 3600, "/");
