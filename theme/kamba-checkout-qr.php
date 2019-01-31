@@ -1,3 +1,4 @@
+
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" 
         integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
 <style type="text/css">
@@ -7,6 +8,7 @@
 body {
     font-family: 'Montserrat', sans-serif;
     color: #848484;
+    font-size: 1.0rem;
 }
 
 .center {
@@ -46,7 +48,7 @@ li {
     padding: 2%;
     border-top-right-radius: 8px;
     border-top-left-radius: 8px;
-    background-image: linear-gradient(-180deg, #47FE52 0%, #56C41D 100%);
+    background-image: linear-gradient(-180deg, #89ff5e 0%, #01ff5f 100%);
 }
 
 .card-container {
@@ -63,7 +65,11 @@ li {
 .card-toolbar > ul > li {
     color: white;
     float: left;
-    margin-right: 3%;
+    margin-right: 18%;
+}
+
+.card-toolbar > ul > li:nth-child(1) {
+    margin-left: -10px;
 }
 
 .title {
@@ -77,15 +83,14 @@ li {
 
 .card-toolbar > ul > li > a {
     text-decoration: none;
-    font-size: 1.5rem;
     color: white;
-    font-family: 'Montserrat', sans-serif;
 }
+
+
 
 .card-business-info > div {
     height: 70px;
     padding: 16px;
-    font-family: 'Montserrat', sans-serif;
 }
 
  .card-business-info > div > img {
@@ -102,12 +107,9 @@ li {
  .business-name {
      color: #848484;
      margin-bottom: 4px;
-     font-family: 'Montserrat', sans-serif;
  }
 
  .business-info { 
-    font-size: 1.6rem;
-    font-family: 'Montserrat', sans-serif;
     text-align: start;
  }
 
@@ -197,7 +199,6 @@ hr {
     line-height: 1;
     text-align: center;
     cursor: pointer;
-    background-color: #1779ba;
     color: #000000;
     text-decoration: none;
     border-radius: 4px;
@@ -242,6 +243,10 @@ button {
     #mobileshow { 
         display: block; 
     }
+
+    .card-toolbar > ul > li {
+        margin-right: 16%;
+    }
 }
 
 </style>
@@ -256,8 +261,7 @@ function formatKwanzas($money)
 {
     return "Kz ".number_format(sprintf('%0.2f', preg_replace("/[^0-9.]/", "", $money)), 2);
 }
- 
-get_header(); ?>
+  ?>
 
 <div class='center checkout-card'>
             <div class='div card-toolbar'>
@@ -265,7 +269,7 @@ get_header(); ?>
                     <li>
                         <a href="">Cancelar</a></li>
                     <li><a class='title' href='#'>Nova transação</a></li>
-                    <li><a href=''>Como pagar?</a></li>
+                    <li><a href=''></a></li>
                 </ul>
             </div>
             <div class='div card-business-info'>
@@ -289,7 +293,7 @@ get_header(); ?>
                     $checkout;
                     if (isset($_COOKIE["checkout"])) {
                         $checkout = $_COOKIE["checkout"];
-                        echo $qrcodetag->getQrCodeUrl($checkout, 250,'UTF-8','L',4,0); 
+                        echo $qrcodetag->getQrCodeUrl($checkout, 290,'UTF-8','L',1, 0); 
                         
                     } else {
                         WC()->cart->empty_cart();
@@ -301,12 +305,11 @@ get_header(); ?>
                     Abra a sua Carteira Kamba e escaneia o código de pagamento
                 </p>
                 <a id="mobileshow" href="<?php echo $_COOKIE["mobile_checkout"]; ?>" class="btnOpenWidgetKamba button large course-button">Clica para pagar com Kamba 
-                    <img class="img-pay-logo logo hide-for-medium-down" src="assets/img/PayLogo-kamba.png"></a>
+                    <img class="img-pay-logo logo hide-for-medium-down" src="https://github.com/usekamba/kamba-checkout-universal-design/raw/master/assets/img/PayLogo-kamba.png"></a>
                 <div class='div'>
-                    <img class='logo' src='assets/img/kamba-logo.png' />
+                    <img class='logo' src='https://github.com/usekamba/kamba-checkout-universal-design/raw/master/assets/img/kamba-logo.png' />
                     <p class='checkout-amount'><i class='icon fas fa-lock checkout-amount'></i>Conexão segura</p>
                 </div>
             </div>
     </div>
 <?php
-get_footer();
